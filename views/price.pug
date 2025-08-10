@@ -1,0 +1,32 @@
+extends layout 
+
+block content
+    .container.mt-5
+
+        div.bg-white.p-3.rounded-1
+            p.fs-1 Insert Setup Price
+            form(action="/price", method="post")
+                .row
+                    .col
+                        label.fw-bold.mb-1(for="") Character
+                        input.form-control.form-control-lg.shadow-none(type="text", name="text" placeholder='Character')
+                    .col
+                        label.fw-bold.mb-1(for="") Price
+                        input.form-control.form-control-lg.shadow-none(type="text", name="number" placeholder='Price')
+                .col
+                    .mt-3
+                        button.btn.btn-primary.btn-lg.rounded-1(type='submit') Submit
+
+        .card.my-5
+            .card-body
+                .table-responsive
+                    table#example.table.table-hover.table-bordered(style='width:100%')
+                        thead
+                            tr
+                                th.text-center Character
+                                th.text-center Price
+                        tbody
+                            each noman in data
+                                tr
+                                    td.text-center #{noman.text}
+                                    td.text-center #{noman.number}
